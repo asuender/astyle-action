@@ -1,0 +1,14 @@
+name: "astyle"
+description: "Run astyle on C/C++ code"
+runs:
+  using: "composite"
+  steps:
+    - name: "Install astyle"
+      shell: bash
+      run: |
+        sudo apt-get update
+        sudo apt-get install astyle
+    - name: "Run astyle"
+      shell: bash
+      run: |
+        astyle --options=.astylerc --recursive "*.c" "*.h"
